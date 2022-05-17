@@ -11,7 +11,7 @@ class handler(BaseHTTPRequestHandler):
         parsed_url = urlparse(self.path)
         recipe_url = parse_qs(parsed_url.query)['url'][0]
         self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
+        self.send_header('Content-type', 'application/json')
         self.end_headers()
         scraper = scrape_me(recipe_url)
         response = {
